@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+    //タイムスタンプを無効化
+    public $timestamps = false;
 }
