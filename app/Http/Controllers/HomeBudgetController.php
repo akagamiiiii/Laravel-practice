@@ -29,7 +29,14 @@ class HomeBudgetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //バリデーション
+        $validated = $request->validate([
+            'date' => 'required|date',
+            'category' => 'required|numeric',
+            'price' => 'required|numeric',
+        ]);
+
+        return redirect('/posts');
     }
 
     /**

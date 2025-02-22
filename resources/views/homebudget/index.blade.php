@@ -31,19 +31,22 @@
 
         <div class="add-balance">
             <h3>支出の追加</h3>
-            <form action="/balances" method="POST">
+            <form action="{{route('store')}}" method="POST">
+                @csrf
                 <label for="date">日付:</label>
                 <input type="date" id="date" name="date">
-
+                @if($errors->has('date')) <span>{{$errors->first('date')}}</span> @endif
                 <label for="category">カテゴリ:</label>
                 <select name="category" id="category">
                     @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                 </select>
+                @if($errors->has('category')) <span>{{$errors->first('category')}}</span> @endif
 
                 <label for="price">金額:</label>
                 <input type="text" id="price" name="price">
+                @if($errors->has('price')) <span>{{$errors->first('price')}}</span> @endif
 
                 <button type="submit">追加</button>
             </form>
