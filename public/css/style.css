@@ -94,3 +94,15 @@ background: #f2f2f2;
 .error {
   color: red;
 }
+
+.flash_message {
+  background-color: aquamarine;
+  opacity: 0.4;
+  color: darkgreen;
+}
+
+.flash_error_message {
+  background-color: red;
+  opacity: 0.6;
+  color: rgb(59, 0, 0);
+}

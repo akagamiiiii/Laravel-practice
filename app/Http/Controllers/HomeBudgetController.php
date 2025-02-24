@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\HomeBudget;
 
 class HomeBudgetController extends Controller
 {
@@ -36,7 +37,19 @@ class HomeBudgetController extends Controller
             'price' => 'required|numeric',
         ]);
 
-        return redirect('/posts');
+        $result = HomeBudget::create([
+            'date' => $request->date,
+            'category_id' => $request->category,
+            'price' => $request->price,
+        ]);
+
+        if (!empty($result)) {
+            session()->flash('flash_message', '支出を登録しました。');
+        }else{
+            session()->flash('flash_error_message', '支出を登録できませんでした。');
+        }
+
+        return redirect('/');
     }
 
     /**

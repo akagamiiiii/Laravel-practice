@@ -14,6 +14,16 @@
     <section class="container">
         <div class="balance">
             <h3>支出一覧</h3>
+            @if(session('flash_message'))
+                <div class="flash_message">
+                    {{ session('flash_message') }}
+                </div>
+            @endif
+            @if(session('flash_error_message'))
+                <div class="flash_error_message">
+                    {{ session('flash_error_message') }}
+                </div>
+            @endif
             <table>
                 <thead>
                     <tr>
