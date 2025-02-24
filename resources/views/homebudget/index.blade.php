@@ -39,6 +39,14 @@
                         <td>{{ $homebudget->date }}</td>
                         <td>{{ $homebudget->category->name }}</td>
                         <td>{{ $homebudget->price }}</td>
+                        <td class="button-td">
+                            <form action="" method="">
+                                <input type="submit" value="更新" class="edit-button">
+                            </form>
+                            <form action="" method="">
+                                <input type="submit" value="削除" class="delete-button">
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
