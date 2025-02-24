@@ -34,9 +34,18 @@
                 </thead>
                 <tbody>
                     <!-- 支出データのループ処理 -->
-
+                    @foreach($homebudgets as $homebudget)
+                    <tr>
+                        <td>{{ $homebudget->date }}</td>
+                        <td>{{ $homebudget->category->name }}</td>
+                        <td>{{ $homebudget->price }}</td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
+            <div class="pagination">
+                {{ $homebudgets->links() }}
+            </div>
         </div>
 
         <div class="add-balance">
